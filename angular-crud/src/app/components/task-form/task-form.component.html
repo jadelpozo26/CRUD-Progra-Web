@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-body">
+        <form (submit)=addTask(newNombre,newApellido,newNacimiento,newFecha,newEquipo)>
+            <div class="form-group">
+                <input type="text" class="form-comtrol" placeholder="Nombre del Futbolista" #newNombre>
+            </div>
+            <div class="form-group">
+                    <input type="text" class="form-comtrol" placeholder="Apellido" #newApellido>
+            </div>
+            <div class="form-group">
+                    <input type="text" class="form-comtrol" placeholder="Lugar de nacimiento" #newNacimiento>
+            </div>
+            <div class="form-group">
+                    <input type="text" class="form-comtrol" placeholder="Fecha de nacimiento" #newFecha>
+            </div>
+            <div class="form-group">
+                    <input type="text" class="form-comtrol" placeholder="Equipo actual" #newEquipo>
+            </div>
+            <button class="btn btn-primary btn-block">
+                Ingresar
+            </button>
+        </form>
+    </div>
+</div>
