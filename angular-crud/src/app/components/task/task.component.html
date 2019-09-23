@@ -1,23 +1,15 @@
-<table class="table table-hover">
-        <thead>
-                <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Apellido</th>
-                  <th scope="col">Nacimiento</th>
-                  <th scope="col">Fecha</th>
-                  <th scope="col">Equipo actual</th>
-                </tr>
-                <tbody>                    
-                        <tr>
-                                <th scope="row">{{task.Nombre}}</th>
-                                <th scope="row">{{task.Apellido}}</th>
-                                <th scope="row">{{task.Nacimiento}}</th>
-                                <th scope="row">{{task.Fecha}}</th>
-                                <th scope="row">{{task.Equipo}}</th>
-                                
-                              </tr>
+<tr>
+                <button class="btn btn-primary">
+                                Edit
+                            </button>
+                            <button class="btn btn-danger" (click)="deleteTask(task)">
+                                Delete
+                            </button> 
+        <th scope="row">{{task.Nombre}}</th>
+        <th scope="row">{{task.Apellido}}</th>
+        <th scope="row">{{task.Nacimiento}}</th>
+        <th scope="row">{{task.Fecha}}</th>
+        <th scope="row">{{task.Equipo}}</th>
+</tr>
                     
                         
-                </tbody>
-        
-</table>
