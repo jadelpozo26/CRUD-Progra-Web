@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {TaskService} from '../../services/task.service'
+import { Task } from 'src/app/models/Task';
 @Component({
   selector: 'app-task-form',
   templateUrl: './task-form.component.html',
@@ -8,24 +9,31 @@ import {TaskService} from '../../services/task.service'
 })
 export class TaskFormComponent implements OnInit {
 
+  task: Task;
+
   constructor(
     public taskservice: TaskService
+    
   ) { }
 
   ngOnInit() {
+
+    this.task = {
+      _id: '',
+      Nombre: '' ,
+      Apellido: '',
+      Nacimiento: '',
+      Fecha:'',
+      Equipo:''
+
+    }
   }
 
-  addTask(newNombre: HTMLInputElement,newApellido:HTMLInputElement,newNacimiento:HTMLInputElement,newFecha:HTMLInputElement,newEquipo:HTMLInputElement){
-    console.log('agregando' , newNombre.value,newApellido.value,newNacimiento.value,newFecha.value,newEquipo.value); 
-    this.taskservice.addTask({
-      Nombre: newNombre.value, 
-      Apellido: newApellido.value,
-      Nacimiento: newNacimiento.value,
-      Fecha: newFecha.value,
-      Equipo: newEquipo.value
+  addTask(){
+    this.taskservice.addTask(this.task).subscribe((res) => {}
+     
 
-    });
-    return false;
+    );
   }
 
 }

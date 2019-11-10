@@ -3,17 +3,30 @@
         <tr>            
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
-            <th scope="col">Nacimiento</th>
-            <th scope="col">Fecha</th>
+            <th scope="col">Lugar de Nacimiento</th>
+            <th scope="col">Fecha de Nacimiento</th>
             <th scope="col">Equipo actual</th>
+            <th scope="col">Acciones</th>
         </tr>
         
     </thead>  
     <tbody> 
+
+        <tr *ngFor="let task of tasks">
+                <td>{{task.Nombre}}</td>
+                <td>{{task.Apellido}}</td>
+                <td>{{task.Nacimiento}}</td>
+                <td>{{task.Fecha}}</td>
+                <td>{{task.Equipo}}</td>
+        <td>
+                <app-task  [task]="task" > </app-task>
+        </td>     
+        </tr>
+         
                               
-            <app-task *ngFor="let task of tasks" [task]="task" >
+        
                 
-            </app-task>
+         
     </tbody>
     <!--<button class="btn btn-primary">
             Show
