@@ -1,14 +1,21 @@
-<nav class="navbar navbar-light" style="background-color: #0000fd;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a href="/" class="navbar-brand">
-            <!--<img
-            width="60"
-            alt="Pelota de Futbol"
-            src="https://www.pinclipart.com/picdir/middle/41-412317_soccer-clipart-party-pelota-de-futbol-plana-png.png"> -->
-            CRUD FUTBOLISTAS
-        </a>
-</div>
+        <a class="navbar-brand" routerLink="/">Futbolistas</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/futbolistas/add" routerLinkActive="active"><i class="fas fa-plus-circle"> </i>Agregar Futbolista</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/futbolistas" routerLinkActive="active"><i class= "fas fa-soccer-ball-o "></i> Futbolistas</a>
+        </li>
+      </ul>
+    </div>
 
 
-</nav>
 
+    </div>
+  </nav>

@@ -121,6 +121,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-crud"
+    }
+  },
+  "defaultProject": "angular-crud",
+  "cli": {
+    "warnings": {
+      "versionMismatch": false
+    }
+  }
 }

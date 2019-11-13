@@ -15,12 +15,21 @@ export class TaskComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
 deleteTask(task: Task)
 {
   if(confirm('¿Seguro que quieres eliminarlo?'))
   {
-    this.taskService.deleteTask(task);
+    this.taskService.deleteTask(task).subscribe((res) =>{});
   }
   
 }
+
+updateTask(task: Task)
+{
+  console.log(task._id)
+}
+
+
 }

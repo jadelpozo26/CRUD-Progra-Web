@@ -1,5 +1,5 @@
 <tr>
-                <button class="btn btn-primary">
+                <button [routerLink]="['/futbolistas/edit', task._id]" class="btn btn-primary">
                                 Edit
                             </button>
                             <button class="btn btn-danger" (click)="deleteTask(task)">

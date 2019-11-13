@@ -1,25 +1,26 @@
-
+<div class="col-md-6 offset-md-3">
 <div class="card">
     <div class="card-body">
-        <form (submit)=addTask()  #formNew ="ngForm" >
+        <form  #formNew ="ngForm" >
             <div class="form-group">
-                <input type="text" class="form-comtrol" placeholder="Nombre del Futbolista" #Nombre = "ngModel" name = "Nombre" [(ngModel)]="task.Nombre">
+                <input type="text" class="form-control" placeholder="Nombre del Futbolista" #Nombre = "ngModel" name = "Nombre" [(ngModel)]="task.Nombre">
             </div>
             <div class="form-group">
-                    <input type="text" class="form-comtrol" placeholder="Apellido" #Apellido = "ngModel" name= "Apellido" [(ngModel)]= "task.Apellido">
+                    <input type="text" class="form-control" placeholder="Apellido" #Apellido = "ngModel" name= "Apellido" [(ngModel)]= "task.Apellido">
             </div>
             <div class="form-group">
-                    <input type="text" class="form-comtrol" placeholder="Lugar de nacimiento" #Nacimiento = "ngModel" name= "Nacimiento" [(ngModel)] = "task.Nacimiento">
+                    <input type="text" class="form-control" placeholder="Lugar de nacimiento" #Nacimiento = "ngModel" name= "Nacimiento" [(ngModel)] = "task.Nacimiento">
             </div>
             <div class="form-group">
-                    <input type="text" class="form-comtrol" placeholder="Fecha de nacimiento" #Fecha = "ngModel" name="Fecha" [(ngModel)] = "task.Fecha">
+                    <input type="text" class="form-control" placeholder="Fecha de nacimiento" #Fecha = "ngModel" name="Fecha" [(ngModel)] = "task.Fecha">
             </div>
             <div class="form-group">
-                    <input type="text" class="form-comtrol" placeholder="Equipo actual" #Equipo = "ngModel" name="Equipo" [(ngModel)] = "task.Equipo">
+                    <input type="text" class="form-control" placeholder="Equipo actual" #Equipo = "ngModel" name="Equipo" [(ngModel)] = "task.Equipo">
             </div>
-            <button class="btn btn-primary btn-block">
-                Ingresar
+            <button class="btn btn-primary btn-block" (click) = "edit ? updateTask() : addTask()">
+                Guardar
             </button>
         </form>
     </div>
+</div>
 </div>
