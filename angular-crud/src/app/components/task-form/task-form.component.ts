@@ -3,6 +3,7 @@ import {Router, ActivatedRoute} from '@angular/router'
 
 import {TaskService} from '../../services/task.service'
 import { Task } from 'src/app/models/Task';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-task-form',
   templateUrl: './task-form.component.html',
@@ -57,11 +58,15 @@ export class TaskFormComponent implements OnInit {
 
   addTask(){
 
-    this.taskservice.addTask(this.task).subscribe((res) => {
-      this.router.navigate(['/futbolistas']);
-    } 
-    );
-  }
+    
+      this.taskservice.addTask(this.task).subscribe
+      ((res) => 
+        {
+          this.router.navigate(['/futbolistas']);
+        } 
+      );
+    }
+  
 
   updateTask()
   {

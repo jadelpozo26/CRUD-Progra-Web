@@ -3,19 +3,40 @@
     <div class="card-body">
         <form  #formNew ="ngForm" >
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nombre del Futbolista" #Nombre = "ngModel" name = "Nombre" [(ngModel)]="task.Nombre">
+                <input type="text" class="form-control" placeholder="Nombre del Futbolista" #Nombre = "ngModel" name = "Nombre" required maxlength="15"  pattern="([A-Z_a-z]+|[ñ]+)+" [(ngModel)]="task.Nombre">
+                <div *ngIf="(Nombre.touched || Nombre.dirty) && !Nombre.valid" >
+                    <div *ngIf="Nombre.errors.required" class="alert alert-info" role="alert">Nombre es obligatorio</div>
+                    <div *ngIf="Nombre.errors.pattern" class="alert alert-info" role="alert">Formato incorrecto. Debe contener solo letras</div>
+                </div>
+                    
             </div>
             <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Apellido" #Apellido = "ngModel" name= "Apellido" [(ngModel)]= "task.Apellido">
+                    <input type="text" class="form-control" placeholder="Apellido" #Apellido = "ngModel" name= "Apellido" required maxlength="25" pattern="([A-Z_a-z]+|[ñ]+|[\s]+)+" [(ngModel)]= "task.Apellido">
+                    <div *ngIf="(Apellido.touched || Apellido.dirty) && !Apellido.valid" >
+                        <div *ngIf="Apellido.errors.required" class="alert alert-info" role="alert">Apellido es obligatorio</div>
+                    <div *ngIf="Apellido.errors.pattern" class="alert alert-info" role="alert">Formato incorrecto. Debe contener solo letras y espacios</div>
+                    </div>
             </div>
             <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Lugar de nacimiento" #Nacimiento = "ngModel" name= "Nacimiento" [(ngModel)] = "task.Nacimiento">
+                    <input type="text" class="form-control" placeholder="Lugar de nacimiento" #Nacimiento = "ngModel" name= "Nacimiento" required maxlength="25" pattern="([A-Z_a-z]+|[ñ]+|[\s]+)+" [(ngModel)] = "task.Nacimiento">
+                    <div *ngIf="(Nacimiento.touched || Nacimiento.dirty) && !Nacimiento.valid" >
+                        <div *ngIf="Nacimiento.errors.required" class="alert alert-info" role="alert">Lugar de nacimiento es obligatorio</div>
+                        <div *ngIf="Nacimiento.errors.pattern" class="alert alert-info" role="alert">Formato incorrecto. Debe contener solo letras y espacios</div>
+                    </div>
             </div>
             <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Fecha de nacimiento" #Fecha = "ngModel" name="Fecha" [(ngModel)] = "task.Fecha">
+                    <input type="text" class="form-control" placeholder="Fecha de nacimiento" #Fecha = "ngModel" name="Fecha" required maxlength="11" pattern="(?:3[01]|[12][0-9]|0?[1-9])([\-/.])(0?[1-9]|1[1-2])\1\d{4}$" [(ngModel)] = "task.Fecha">
+                    <div *ngIf="(Fecha.touched || Fecha.dirty) && !Fecha.valid" >
+                        <div *ngIf="Fecha.errors.required" class="alert alert-info" role="alert">Fecha de nacimeinto es obligatoria</div>
+                        <div *ngIf="Fecha.errors.pattern" class="alert alert-info" role="alert">Formato incorrecto. Debe ser: dd/mm/aaaa o dd-mm-aaaa</div>
+                    </div>
             </div>
             <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Equipo actual" #Equipo = "ngModel" name="Equipo" [(ngModel)] = "task.Equipo">
+                    <input type="text" class="form-control" placeholder="Equipo actual" #Equipo = "ngModel" name="Equipo" required maxlength="25" pattern="([A-Z_a-z]+|[ñ]+|[\s]+)+" [(ngModel)] = "task.Equipo">
+                    <div *ngIf="(Equipo.touched || Equipo.dirty) && !Equipo.valid" >
+                        <div *ngIf="Equipo.errors.required" class="alert alert-info" role="alert">Equipo es obligatorio</div>
+                        <div *ngIf="Equipo.errors.pattern" class="alert alert-info" role="alert">Formato incorrecto. Debe contener solo letras y espacios</div>
+                    </div>
             </div>
             <button class="btn btn-primary btn-block" (click) = "edit ? updateTask() : addTask()">
                 Guardar

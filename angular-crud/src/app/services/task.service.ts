@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 
 import{ Task } from '../models/Task';
 import { HttpClient } from '@angular/common/http';
+import {environment} from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  API_URL = 'http://localhost:3000/api/v1';
+  API_URL = environment.url;
 
   tasks: Task[];
   constructor(private http:HttpClient) {
@@ -20,8 +21,9 @@ export class TaskService {
 
   getTask()
   {
-
-    return this.http.get(`${this.API_URL}/read`);
+    console.log(environment.url);
+    console.log('entre al read');
+    return this.http.get( this.API_URL + '/read');
 
     
     /*if(localStorage.getItem('tasks') === null)
@@ -38,19 +40,19 @@ export class TaskService {
 
   getOneTask(_id: string)
   {
-    return this.http.get('http://localhost:3000/api/v1/read/' + _id);
+    return this.http.get( this.API_URL + '/read/' + _id);
   }
 
   addTask(task: Task){
 
-      return this.http.post('http://localhost:3000/api/v1/create', task);
+      return this.http.post(this.API_URL + '/create', task);
   
   }
 
   deleteTask(task: Task)
   {
     console.log(task._id);
-    return this.http.delete('http://localhost:3000/api/v1/delete/'+ task._id)
+    return this.http.delete( this.API_URL + '/delete/'+ task._id)
   }
 
   actualizarTask(id: string, task:Task)
@@ -71,6 +73,6 @@ export class TaskService {
     }
 
 
-    return this.http.put('http://localhost:3000/api/v1/update/' + id, sendBody);
+    return this.http.put(this.API_URL + '/update/' + id, sendBody);
   }
 }
